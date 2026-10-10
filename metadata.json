@@ -1,0 +1,8 @@
+{
+  "name": "Mr Long - AI Quiz Master",
+  "description": "Ứng dụng tạo bộ đề trắc nghiệm thông minh với số lượng câu hỏi tùy chỉnh, tích hợp AI và bảng xếp hạng thời gian thực.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

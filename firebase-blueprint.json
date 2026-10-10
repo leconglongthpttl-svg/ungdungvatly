@@ -1,0 +1,63 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Thông tin người dùng và thống kê tổng quát.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "totalScore": { "type": "number" },
+        "quizzesCompleted": { "type": "number" },
+        "lastActive": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "displayName"]
+    },
+    "QuizHistory": {
+      "title": "QuizHistory",
+      "description": "Lịch sử làm bài của người dùng.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "topic": { "type": "string" },
+        "score": { "type": "number" },
+        "totalQuestions": { "type": "number" },
+        "correctAnswers": { "type": "number" },
+        "wrongAnswers": { "type": "number" },
+        "timedOutAnswers": { "type": "number" },
+        "timeSpent": { "type": "number" },
+        "completedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "topic", "score", "totalQuestions"]
+    },
+    "Leaderboard": {
+      "title": "Leaderboard",
+      "description": "Bảng xếp hạng theo chủ đề hoặc tổng quát.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "score": { "type": "number" },
+        "topic": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "score"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Thông tin cá nhân người dùng."
+    },
+    "/history/{historyId}": {
+      "schema": "QuizHistory",
+      "description": "Lịch sử chi tiết các lần làm bài."
+    },
+    "/leaderboard/{leaderboardId}": {
+      "schema": "Leaderboard",
+      "description": "Dữ liệu bảng xếp hạng."
+    }
+  }
+}
